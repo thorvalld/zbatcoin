@@ -1,0 +1,6 @@
+_mysql_host = 'localhost'
+_mysql_user = 'root'
+_mysql_password = ''
+_mysql_database = 'cryptozbat'
+_mysql_cursor_class = 'DictCursor'
+_secret_key = 'hei#!..!crypt0!..!zb@t!..!ZB@TC01N!..!#verden'

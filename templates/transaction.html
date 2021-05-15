@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='transaction.css') }}">
+</head>
+<body>
+    <form method="POST" action="">
+        <div class="container">
+            <p>transfer <b>ZBATCOIN</b> funds</p>
+            <h1>Current balance: <b>{{ current_balance }}</b></h1>
+            <div class="divider"></div>
+            <h2>Amount to send</h2>
+            <div class="from-group">
+                <input id="input-amount" type="number" name="amount" placeholder='0.00' value="{{request.form.amount}}" required/>
+            </div>
+            <h2>Recipient username</h2>
+            <div class="from-group">
+            <input id="input-address" type="text" name="username" maxlength="42" placeholder="@" value="{{request.form.username}}" required/>
+            </div>
+            <input id="btn-send" type="button" value="Send Transaction" />
+        </div>
+    </form>
+  </body>
+</html>

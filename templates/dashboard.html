@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zbatcoin-dash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.selectric/1.10.1/selectric.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.selectric/1.10.1/selectric.css">
+
+</head>
+<body>
+<!--<p>Welcome, {{ session.get('name') }}</p>-->
+<nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0">
+	<p id="zbtc" class="navbar-brand col-sm-3 col-md-2 mr-0"><b>Zbatcoin</b></p>
+	<br>
+	<p class="navbar-brand col-sm-3 col-md-2 mr-0"><b>{{ session.get('name') }}</b></p>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="/dashboard">
+                  <i class="zmdi zmdi-widgets"></i>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/buy">
+                  <i class="zmdi zmdi-shopping-cart"></i>
+                  Buy ZBT
+                </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/transaction">
+                  <i class="zmdi zmdi-accounts"></i>
+                  Transfer ZBT
+                </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">
+                  <i class="zmdi zmdi-power"></i>
+                 <b>LOG OUT</b>
+                </a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
+			<div class="card-list">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+						<div class="card blue">
+							<div class="title">Your current balance</div>
+							<br>
+							<div class="value">{{ balance }}</div>
+							<div class="stat"><b>0</b>% increase</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+						<div class="card green">
+							<div class="title">ZBT to USD</div>
+							<br>
+							<div class="value">$5,990</div>
+							<div class="stat"><b>0</b>% increase</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+						<div class="card orange">
+							<div class="title">Last outgoing transaction</div>
+							<br>
+							<div class="value">100 ZBT</div>
+							<div class="stat"><b>date here</b></div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+						<div class="card red">
+							<div class="title">Last ingoing transaction</div>
+							<br>
+							<div class="value">300 ZBT</div>
+							<div class="stat">date here</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="projects mb-4">
+				<div class="projects-inner">
+					<header class="projects-header">
+						<div class="title">Transaction history</div>
+						<div class="count">| total of 3 operations</div>
+						<i class="zmdi zmdi-refresh"></i>
+					</header>
+					<table class="projects-table">
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Timestamp</th>
+								<th>Username</th>
+								<th>Amount</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<i class="zmdi zmdi-arrow-right-top"></i>
+							</td>
+							<td>
+								<p>17th Oct, 2021</p>
+								<p></p>
+							</td>
+							<td class="member">
+								<div class="member-info">
+									<p>@thorvalld</p>
+									<p></p>
+								</div>
+							</td>
+							<td>
+								<p>720</p>
+								<p></p>
+							</td>
+							<td class="status">
+								<span class="status-text status-orange">In progress</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<i class="zmdi zmdi-arrow-right-top"></i>
+							</td>
+							<td>
+								<p>1Oth Nov, 2021</p>
+								<p></p>
+							</td>
+							<td class="member">
+								<div class="member-info">
+									<p>@william</p>
+									<p></p>
+								</div>
+							</td>
+							<td>
+								<p>2000</p>
+								<p></p>
+							</td>
+							<td class="status">
+								<span class="status-text status-green">Done</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<i class="zmdi zmdi-arrow-left-bottom"></i>
+							</td>
+							<td>
+								<p>1st Jan, 2022</p>
+								<p></p>
+							</td>
+							<td class="member">
+								<div class="member-info">
+									<p>@harald</p>
+									<p></p>
+								</div>
+							</td>
+							<td>
+								<p>230</p>
+								<p></p>
+							</td>
+							<td class="status">
+								<span class="status-text status-red">Blocked</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</main>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.selectric/1.10.1/jquery.selectric.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+</body>
+</html>
